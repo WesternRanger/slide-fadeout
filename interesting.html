@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        @keyframes smalls{
+            10%{
+                transform: scale(0.95);
+                opacity: 0.4;
+            }
+            80%{
+                transform: scale(1.1);
+                opacity: .8;
+            }
+            100%{
+                transform: scale(0.95);
+                opacity: 0.4;
+            }
+        }
+        @-ms-keyframes smalls{
+            10%{
+                -ms-transform: scale(0.95);
+                opacity: 0.4;
+            }
+            80%{
+                -ms-transform: scale(1.1);
+                opacity: .8;
+            }
+            100%{
+                -ms-transform: scale(0.95);
+                opacity: 0.4;
+            }
+        }
+        @-moz-keyframes smalls{
+            10%{
+                -moz-transform: scale(0.95);
+                opacity: 0.4;
+            }
+            80%{
+                -moz-transform: scale(1.1);
+                opacity: .8;
+            }
+            100%{
+                -moz-transform: scale(0.95);
+                opacity: 0.4;
+            }
+        }
+        @-webkit-keyframes smalls{
+            10%{
+                -webkit-transform: scale(0.95);
+                opacity: 0.4;
+            }
+            80%{
+                -webkit-transform: scale(1.1);
+                opacity: .8;
+            }
+            100%{
+                -webkit-transform: scale(0.95);
+                opacity: 0.4;
+            }
+        }
+        @-o-keyframes smalls{
+            10%{
+                -o-transform: scale(0.95);
+                opacity: 0.4;
+            }
+            80%{
+                -o-transform: scale(1.1);
+                opacity: .8;
+            }
+            100%{
+                -o-transform: scale(0.95);
+                opacity: 0.4;
+            }
+        }
+
+        .anim{
+            background: red;
+            width:200px;
+            height:100px;
+            animation: smalls 4s linear 0 infinite alternate;
+            -webkit-animation:smalls 4s linear 0 infinite alternate;
+            -moz-animation:smalls 4s linear 0 infinite alternate;
+            -o-animation:smalls 4s linear 0 infinite alternate;
+            -ms-animation:smalls 4s linear 0 infinite alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide clearfix">
+        <!-- 幻灯片 -->
+        <div class="slide-content clearfix">
+            <div class="img show">
+                <img src="slideimg_03.png" alt=""/>
+                <p class="img-text">dfgdsfgdf</p>
+            </div>
+            <div class="img hide">
+                <img src="famous-head_03.png" alt=""/>
+            </div>
+            <div class="img hide">
+                <img src="famous-head_01.png" alt=""/>
+            </div>
+        </div>
+
+        <div class="anim">
+            <!-- 用来实现动画的 -->
+        </div>
+    </div>
+    <script type="text/javascript" src="引用jQuery"></script>
+    <script>
+        var step = 0,
+                time = 4000,
+                imgArr = $(".slide-content").children(".img"),
+                id,
+                clearId;
+        id=setTimeout(change,time);
+        function change(){
+            id=setTimeout(change,time);
+            step = (++step)%imgArr.length;
+            for(var i = 0;i<imgArr.length;i++){
+//                imgArr.eq(i).removeClass("show").addClass("hide");
+                imgArr.eq(i).fadeOut(1000);
+            }
+//            imgArr.eq(step).addClass("show").removeClass("hide");
+            imgArr.eq(step).fadeIn(1000);
+        }
+
+    </script>
+</body>
+</html>
